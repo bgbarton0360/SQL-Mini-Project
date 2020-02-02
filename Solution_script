@@ -54,8 +54,8 @@ where the fee is less than 20% of the facility's monthly maintenance cost?
 Return the facid, facility name, member cost, and monthly maintenance of the
 facilities in question. 
 
-A3facid:
-SELECT `facid`, `name`, `membercost`, `monthlymaintenance`
+A3:
+SELECT facid, name, membercost, monthlymaintenance
     FROM Facilities
 WHERE membercost > 0 
     AND membercost < (monthlymaintenance * (20/100))
@@ -80,9 +80,9 @@ more than $100? Return the name and monthly maintenance of the facilities
 in question. 
 
 A5:
-SELECT name, monthlymaintenance
-CASE WHEN monthlymaintenance > 100 THEN 'expensive'
-	ELSE 'cheap' END AS wallet
+SELECT name, monthlymaintenance,
+CASE WHEN monthlymaintenance < 100 THEN 'Cheap'
+ELSE 'Expensive' END AS Wallet
 FROM Facilities
 */
 
